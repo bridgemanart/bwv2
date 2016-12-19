@@ -1,0 +1,40 @@
+# App Settings
+version: '2'
+
+services:
+
+  monitor:
+    image: portainer/portainer
+    restart: always
+    ports:
+      - 9900:9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    network_mode: bridge
+
+  # 1
+  phpfpm:
+    build: ./php/
+    restart: always
+    network_mode: bridge
+    volumes:
+      - /etc/localtime:/etc/localtime:ro #make sure datetime sync with host.
+      - ./php/php.ini:/usr/local/etc/php/php.ini
+      - ./php/php-fpm.conf:/usr/local/etc/php/php-fpm.conf
+      - ./php/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf
+      - ./../:/var/www/html
+
+  # 2
+  nginx:
+    build: ./nginx/
+    restart: always
+    network_mode: bridge
+    volumes:
+      - /etc/localtime:/etc/localtime:ro #make sure datetime sync with host.
+      - ./nginx/conf/nginx.conf:/etc/nginx/conf/nginx.conf
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    ports:
+      - 80:80
+      - 443:443
+    links:
+      - phpfpm
