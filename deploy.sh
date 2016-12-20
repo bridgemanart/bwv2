@@ -7,3 +7,5 @@ composer dumpautoload -o
 
 chown www-data:www-data -R .
 chmod 777 -R ./storage/logs/
+chmod 777 -R ./storage/temp/
+chmod 777 ./history.txt

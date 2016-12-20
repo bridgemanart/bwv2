@@ -16,8 +16,8 @@ class ComposerStaticInit631a8db7ae9f07556b60dd0e8e3fd10f
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '8a9dc1de0ca7e01f3e08231539562f61' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/functions.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
-        'bee9632da3ca00a99623b9c35d0c4f8b' => __DIR__ . '/..' . '/laravel/lumen-framework/src/helpers.php',
         'd301105305ad8abbff5ffc3e97ec9a3c' => __DIR__ . '/..' . '/vluzrmos/lumen-cors/src/helpers.php',
+        'bee9632da3ca00a99623b9c35d0c4f8b' => __DIR__ . '/..' . '/laravel/lumen-framework/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -373,6 +373,8 @@ class ComposerStaticInit631a8db7ae9f07556b60dd0e8e3fd10f
         'Aws\\AwsClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/AwsClient.php',
         'Aws\\AwsClientInterface' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/AwsClientInterface.php',
         'Aws\\AwsClientTrait' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/AwsClientTrait.php',
+        'Aws\\Batch\\BatchClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Batch/BatchClient.php',
+        'Aws\\Batch\\Exception\\BatchException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Batch/Exception/BatchException.php',
         'Aws\\Budgets\\BudgetsClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Budgets/BudgetsClient.php',
         'Aws\\Budgets\\Exception\\BudgetsException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Budgets/Exception/BudgetsException.php',
         'Aws\\CacheInterface' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/CacheInterface.php',
@@ -624,6 +626,8 @@ class ComposerStaticInit631a8db7ae9f07556b60dd0e8e3fd10f
         'Aws\\Swf\\Exception\\SwfException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Swf/Exception/SwfException.php',
         'Aws\\Swf\\SwfClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Swf/SwfClient.php',
         'Aws\\TraceMiddleware' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/TraceMiddleware.php',
+        'Aws\\WafRegional\\Exception\\WafRegionalException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/WafRegional/Exception/WafRegionalException.php',
+        'Aws\\WafRegional\\WafRegionalClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/WafRegional/WafRegionalClient.php',
         'Aws\\Waf\\Exception\\WafException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Waf/Exception/WafException.php',
         'Aws\\Waf\\WafClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Waf/WafClient.php',
         'Aws\\Waiter' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Waiter.php',

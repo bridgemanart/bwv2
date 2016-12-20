@@ -52,18 +52,25 @@ class Bw extends Command
             return false;
         }
 
-        $bar = $this->output->createProgressBar(count($assets));
+        //$bar = $this->output->createProgressBar(count($assets));
+        $total = 0;
 
         DB::beginTransaction();
 
         foreach ($assets as $asset) {
             $this->performTask($asset);
-            $bar->advance();
+            //$bar->advance();
+
+            $total++;
+            if(is_int( ($total/100) )){
+                $message = "\n [".date('Y-m-d H:i:s')."][Offset: ".$offset."][Total:".$total."][Mem usage: ".($this->formatBytes(memory_get_usage()))."]";
+                $this->history($message);
+            }
         }
 
         DB::commit();
 
-        $bar->finish();
+        //$bar->finish();
         $this->info("\n\n Finished sir! \n\n");
     }
 
@@ -146,6 +153,21 @@ class Bw extends Command
 
         $url = str_replace(array_keys($variables), $variables, $template);
         return $url;
+    }
+
+    private function formatBytes($size, $precision = 2)
+    {
+        $base = log($size, 1024);
+        $suffixes = array('', 'K', 'M', 'G', 'T');
+
+        return round(pow(1024, $base - floor($base)), $precision) .' '. $suffixes[floor($base)];
+    }
+
+    private function history($message)
+    {
+        try{
+            file_put_contents('/var/www/html/history.txt', $message, FILE_APPEND | LOCK_EX);
+        }catch (\Exception $e){}
     }
 
 }
